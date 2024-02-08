@@ -2,7 +2,6 @@ import React from "react";
 import Messages from "./Messages";
 import InputField from "./InputField";
 import { TiMessages } from "react-icons/ti";
-
 const MessageContainer = () => {
   const noChatSelected = false;
   return (
@@ -16,7 +15,6 @@ const MessageContainer = () => {
             <span className="label-text">To:</span>
             <span className="text-gray-900 font-bold">John Doe:</span>
           </div>
-
           <Messages />
           <InputField />
         </>
@@ -24,7 +22,6 @@ const MessageContainer = () => {
     </div>
   );
 };
-
 const NoChatSelected = () => {
   return (
     <div className="flex items-center justify-center w-full h-full">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Messages from "./Messages";
 import InputField from "./InputField";
 import { TiMessages } from "react-icons/ti";
@@ -6,9 +6,13 @@ import useConversation from "../../zustand/useConversation";
 // import useConversation from '';
 
 const MessageContainer = () => {
-  const { selectedConversation, setSelectedConversation } = useConversation(state => state); 
-  
-  const selected = true;
+  const { selectedConversation, setSelectedConversation } = useConversation(); 
+
+  useEffect(() => {
+    // Cleanup function to reset selectedConversation when component unmounts
+    return () => setSelectedConversation(null);
+}, [setSelectedConversation]);
+
   return (
     <div className="md:min-w[450px] lg:w-[1200px] flex flex-col">
       {!selectedConversation ? (
@@ -18,7 +22,7 @@ const MessageContainer = () => {
           {/* HEADER */}
           <div className="bg-slate-500 px-4 py-2 mb-2">
             <span className="label-text">To:</span>
-            <span className="text-gray-900 font-bold">John Doe:</span>
+            <span className="text-gray-900 font-bold">{selectedConversation.fullName}:</span>
           </div>
           <Messages />
           <InputField />

@@ -12,7 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <AuthContextProvider> 
     <SocketContextProvider>
-    <App />
+   <div className='h-full w-full bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 border border-gray-100'>
+   <App  />
+   </div>
     </SocketContextProvider>
   </AuthContextProvider>
  
